@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Geodézia Hlohovec a.s.</title>
+        <link rel="stylesheet" type="text/css" href="styly.css">
+        <link rel="icon" type="image/jpg" sizes="64x64" href="LOGO.png">
+        <meta charset="UTF-8">
+        <meta name="author" content="Matej Pisár">
+        <meta name="viewport" content="width=device-width, initial-scale=0.8">
+    </head>
+    <body>
+        <header>
+            <h1 >
+                <img src="LOGO.png" height=35px alt="logo" style="font-size:2vw">
+                        Geodézia Hlohovec a.s.
+            </h2>
+        </header>
+        <div class="navbar">
+        <a href="#uvod" style="font-size:1.5vw">ÚVOD</a>
+        <div class="dropdown" style="font-size:1.5vw">
+            <button class="dropbtn" style="font-size:1.5vw">O NÁS 
+            </button>
+            <div class="dropdown-content">
+              <a href="nas_tym.html" style="font-size:1.5vw">Náš tým</a>
+              <a href="#" style="font-size:1.5vw">História</a>
+              <a href="#" style="font-size:1.5vw">Kvalita práce</a>
+            </div>
+          </div>
+        <div class="dropdown">
+                            <button class="dropbtn" style="font-size:1.5vw">SLUŽBY 
+                            </button>
+                            <div class="dropdown-content">
+                              <a href="#" style="font-size:1.5vw">Kataster nehnuteľností</a>
+                              <a href="#" style="font-size:1.5vw">Inžinierska geodézia</a>
+                              <a href="#" style="font-size:1.5vw">Projektovanie pozemkových úprav</a>
+                              <a href="#" style="font-size:1.5vw">Mapovanie</a>
+                              <a href="#" style="font-size:1.5vw">Laserové skenovanie</a>
+                              <a href="#" style="font-size:1.5vw">Špeciálne geodetické práce</a>
+                            </div>
+                          </div> 
+                          <div class="dropdown">
+                              <button class="dropbtn" style="font-size:1.5vw">CENNÍK 
+                              </button>
+                              <div class="dropdown-content">
+                                <a href="cenník_KN.html" style="font-size:1.5vw">Kataster nehnuteľností</a>
+                                <a href="#" style="font-size:1.5vw">Inžinierska geodézia</a>
+                                <a href="#" style="font-size:1.5vw">Projektovanie pozemkových úprav</a>
+                                <a href="#" style="font-size:1.5vw">Mapovanie</a>
+                                <a href="#" style="font-size:1.5vw">Laserové skenovanie</a>
+                                <a href="#" style="font-size:1.5vw">Špeciálne geodetické práce</a>
+                              </div>
+                            </div>
+                            <a href="#" style="font-size:1.5vw">REFERENCIE</a>
+                <a href="#kontakt" style="font-size: 1.5vw">KONTAKT</a> 
+        </div>
+        <section>
+          <img src="https://www.sgs-holding.com/wp-content/uploads/2017/09/vrstevnice.jpg" height=400px width=100% alt="vrstevnice">
+            </section>
+            <section id=uvod class="grey">
+              <h1 class="profil">Geodézia Hlohovec a.s. </h1>
+                <p>Spoločnosť Geodézia Hlohovec a.s. je spoločnosť s celoslovenskou pôsobnosťou na trhu <br> v oblasti geodézie, kartografie a katastra, 
+                  a okrem štandardných služieb poskytuje <br> svojim klientom aj KVALITU, FLEXIBILITU A PRESNOSŤ.
+                </p>
+                </section>   
+                <section id="kontakt" class="white">
+                        <h1 class="otvorenie">Kontakt</h1>
+            <table style="float:left">
+                <caption style="font-size:2vw"><b>Otváracie hodiny</b></caption>
+                    <tr>
+                      <td><b>Pondelok</b></td>
+                      <td>7:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                      <td><b>Utorok</b></td>
+                      <td>7:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                      <td><b>Streda</b></td>
+                      <td>7:00 - 17:00</td>
+                    </tr>
+                    <tr>
+                      <td><b>Štvrtok</b></td>
+                      <td>7:00 - 16:00</td>
+                    </tr>
+                    <tr>
+                      <td><b>Piatok</b></td>
+                      <td>7:00 - 16:00</td>
+                    </tr>
+                  </table>
+
+            <div id="map"></div>
+            <div style="display:none">
+              <div class="controls zoom-control">
+                <button class="zoom-control-in" title="Priblíženie"><b>+</b></button>
+                <button class="zoom-control-out" title="Vzdialenie"><b>−</b></button>
+              </div>
+            </div>
+            <script>
+            var labels = 'MAPA';
+            var labelIndex = 0;
+              var map;
+              function myMap() {
+                map = new google.maps.Map(document.querySelector('#map'), {
+                  center: {lat: 48.422450, lng: 17.792887},
+                  zoom: 16,
+              zoomControl: false,
+                  scaleControl: true,
+              mapTypeControl: true,
+              mapTypeControlOptions: {
+              style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+                    mapTypeIds: ['roadmap', 'terrain', 'satellite', 'hybrid']
+                  }
+                });
+              initZoomControl(map);
+             function initZoomControl(map) {
+                document.querySelector('.zoom-control-in').onclick = function() {
+                  map.setZoom(map.getZoom() + 1);
+                };
+                document.querySelector('.zoom-control-out').onclick = function() {
+                  map.setZoom(map.getZoom() - 1);
+                };
+                map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+                    document.querySelector('.zoom-control'));
+              }
+            var GEOHLOH = {lat: 48.422450, lng: 17.792887}
+            var marker1 = new google.maps.Marker({
+                  position: GEOHLOH,
+              label: labels[labelIndex++ % labels.length],
+                  map: map,
+                  title: 'Geodézia Hlohovec a.s.'
+                });
+                var infowindow1 = new google.maps.InfoWindow({
+                content: contentString1,
+                maxWidth: 300
+                });
+                marker1.addListener('click', function() {
+                infowindow1.open(map, marker1);
+                }); 
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+                map.addListener('bounds_changed', function() {
+                  searchBox.setBounds(map.getBounds());
+                });
+                var markers = [];
+                searchBox.addListener('places_changed', function() {
+                  var places = searchBox.getPlaces();
+                  if (places.length == 0) {
+                    return;
+                  }
+                  markers.forEach(function(marker) {
+                    marker.setMap(null);
+                  });
+                  markers = [];
+                  var bounds = new google.maps.LatLngBounds();
+                  places.forEach(function(place) {
+                    if (!place.geometry) {
+                      console.log("Returned place contains no geometry");
+                      return;
+                    }
+                    var icon = {
+                      url: place.icon,
+                      size: new google.maps.Size(50, 50),
+                      origin: new google.maps.Point(0, 0),
+                      anchor: new google.maps.Point(17, 34),
+                      scaledSize: new google.maps.Size(25, 25)
+                    };
+                    markers.push(new google.maps.Marker({
+                      map: map,
+                      icon: icon,
+                      title: place.name,
+                      position: place.geometry.location
+                    }));
+                    if (place.geometry.viewport) {
+                      bounds.union(place.geometry.viewport);
+                    } else {
+                      bounds.extend(place.geometry.location);
+                    }
+                  });
+                  map.fitBounds(bounds);
+                });
+              map.setTilt(60);
+              }
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpoEYMJUoQ-p24KNvG8o4hTwvaNCzKc4w&libraries=places&callback&callback=myMap"
+            async defer></script>
+
+            <p class="adresa_udaje"><b>Kde nás nájdete:</b> Závalie 1340/10, Hlohovec 920 01<br>
+              <b>tel:</b><a class="telefon" href="tel:+421908807639" class="telefon"> +421908807639</a><br>
+              <b>email:</b> <a href= "info@geodeziahlohovec.sk" class="email">info@geodeziahlohovec.sk </a></p>
+                        </section>
+
+                        <section class="white2">
+                          <h3 style="font-size:1.5vw" class="meno">Kontaktná osoba</h2>
+                            <p class="foto"><img src="matejpisar_foto.jpg" height=180px width=180px alt="Matej Pisár" style="float:left"> <p class="meno">Matej Pisár</p>
+                              <a class="telefon" href="tel:+421908807639" class="telefon"> +421908807639</a><br>
+                              <a href= "matejpisar@geodeziahlohovec.sk" class="email">matejpisar@geodeziahlohovec.sk </a></p>
+        
+                        </section>
+
+                        <footer>
+                                <h4 style="font-size:1.5vw"><b>Užitočné linky</b></b></h4>
+                                <a href="http://www.skgeodesy.sk/sk/" class="linky">Úrad geodézie, kartografie a katastra SR</a><br>
+                                <a href="https://zbgis.skgeodesy.sk/mkzbgis/?bm=zbgis&z=8&c=19.530000,48.800000#" class="linky">Mapový klient ZBGIS</a><br>
+                                <a href="https://www.minv.sk/?katastralny-odbor-16" class="linky">Katastrálny odbor Okresného úradu Hlohovec</a>
+                                <p class=copyright>&copy; geodeziahlohovec.sk<p>
+                        </footer>
+    </body>
+</html>

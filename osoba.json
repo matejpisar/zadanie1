@@ -1,0 +1,24 @@
+{
+"osoba": {
+	"zakladne_info": {
+		"meno":[
+		{
+		"krstne_meno":"Matej",
+		"priezvisko":"Pisár"
+		}
+		],
+		"vek":"27"
+	},		
+	"bydlisko": {
+		"adresa":{
+			"ulica":"Závalie",
+			"supisne_cislo":"1340",
+			"orientacne_cislo":"10"
+		},
+		"mesto":{
+			"nazov":"Hlohovec",
+			"psc":"92001"
+		}
+}
+}
+}

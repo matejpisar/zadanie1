@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osoba>
+	<zakladne_info>
+		<meno typ="krstne_meno">Matej</meno>
+		<meno typ="priezvisko">Pisár</meno>
+		<vek>27</vek>
+	</zakladne_info>
+	<bydlisko>
+		<adresa>
+			<ulica>Závalie</ulica>
+			<supisne_cislo>1340</supisne_cislo>
+			<orientacne_cislo>10</orientacne_cislo>
+		</adresa>
+		<mesto>
+			<nazov>Hlohovec</nazov>
+			<psc>92001</psc>
+		</mesto>
+	</bydlisko>
+</osoba>
